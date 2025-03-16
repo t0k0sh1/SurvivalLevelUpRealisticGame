@@ -9,6 +9,7 @@ public class AutoShootProjectile : MonoBehaviour
     [SerializeField] float shootInterval = 1f;
     [SerializeField] int projectileCount = 3;
     [SerializeField] float spreadAngle = 15f;
+    [SerializeField] int projectileDamage = 50;
 
     float shootTimer;
     private void Start()
@@ -50,6 +51,8 @@ public class AutoShootProjectile : MonoBehaviour
             projectile.transform.rotation = Quaternion.Euler(0f, 0f, rotationZ - 90f);
 
             projectile.GetComponent<Rigidbody2D>().velocity = direction * projectileSpeed;
+
+            projectile.GetComponent<Projectile>().damage = projectileDamage;
         }
 
         // GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
